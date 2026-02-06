@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes scan-vertical {
+  0% {
+    top: -2px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
+
+.animate-scan-vertical {
+  animation: scan-vertical 8s linear infinite;
+}
+
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-flicker {
+  animation: flicker 0.1s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a3e;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* Focus styles */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid rgba(0, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Body base styles */
+body {
+  background: #0a0a0f;
+  color: #e0e0e0;
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Number input arrow removal */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
